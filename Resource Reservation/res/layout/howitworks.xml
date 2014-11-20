@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Students can Reserve the Resources in the Campus, like Reserving a X-Box, Pool, Football court, Batmenton court, etc... We need your Student ID to process Your Request, Kindly reserve only one service per one student. 
+        
+        Note: You have to show your Student ID card at the time of accessing your requested resource. "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
