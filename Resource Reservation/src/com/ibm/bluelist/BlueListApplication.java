@@ -39,7 +39,7 @@ public final class BlueListApplication extends Application {
 	public static final int EDIT_ACTIVITY_RC = 1;
 	private static final String CLASS_NAME = BlueListApplication.class
 			.getSimpleName();
-	List<Item> itemList;
+	List<ResourceData> itemList;
 
 	public BlueListApplication() {
 		registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
@@ -93,7 +93,7 @@ public final class BlueListApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		itemList = new ArrayList<Item>();
+		itemList = new ArrayList<ResourceData>();
 		// Read from properties file.
 		Properties props = new java.util.Properties();
 		Context context = getApplicationContext();
@@ -112,7 +112,7 @@ public final class BlueListApplication extends Application {
 		// Initialize the IBM Data Service.
 		IBMData.initializeService();
 		// Register the Item Specialization.
-		Item.registerSpecialization(Item.class);
+		ResourceData.registerSpecialization(ResourceData.class);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public final class BlueListApplication extends Application {
 	 * 
 	 * @return itemList
 	 */
-	public List<Item> getItemList() {
+	public List<ResourceData> getItemList() {
 		return itemList;
 	}
 }

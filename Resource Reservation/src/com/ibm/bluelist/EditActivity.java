@@ -41,7 +41,7 @@ public class EditActivity extends Activity {
 	String originalItem;
 	int location;
 	BlueListApplication blApplication;
-	List<Item> itemList;
+	List<ResourceData> itemList;
 	public static final String CLASS_NAME="EditActivity";
 	
 	@Override
@@ -84,7 +84,7 @@ public class EditActivity extends Activity {
 	 * @param View v
 	 */
 	public void finishedEdit(View v) {
-		Item item = itemList.get(location);
+		ResourceData item = itemList.get(location);
 		EditText itemToEdit = (EditText) findViewById(R.id.itemToEdit);
 		String text = itemToEdit.getText().toString();
 		item.setName(text);

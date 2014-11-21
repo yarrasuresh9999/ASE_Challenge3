@@ -29,11 +29,7 @@
             android:name="com.ibm.bluelist.startscreen"
             android:label="Resource Reservation"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity 
             android:name="com.ibm.bluelist.howitworks"
@@ -45,6 +41,25 @@
             ></activity>
         <activity 
             android:name="com.ibm.bluelist.selecttime"
+            android:label="Resource Reservation"
+            ></activity>
+        <activity 
+            android:name="com.ibm.bluelist.lastscreen"
+            android:label="Resource Reservation"
+            ></activity>
+        <activity 
+            android:name="com.ibm.bluelist.firstscreen"
+            android:label="Resource Reservation"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+        <activity 
+            android:name="com.ibm.bluelist.loginscreen"
             android:label="Resource Reservation"
             ></activity>
         <activity

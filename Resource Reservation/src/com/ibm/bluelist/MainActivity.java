@@ -49,9 +49,9 @@ import com.ibm.mobile.services.data.IBMQueryResult;
 
 public class MainActivity extends Activity {
 
-	List<Item> itemList;
+	List<ResourceData> itemList;
 	BlueListApplication blApplication;
-	ArrayAdapter<Item> lvArrayAdapter;
+	ArrayAdapter<ResourceData> lvArrayAdapter;
 	ActionMode mActionMode = null;
 	int listItemPosition;
 	public static final String CLASS_NAME="MainActivity";
@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 		
 		/* Set up the array adapter for items list view. */
 		ListView itemsLV = (ListView)findViewById(R.id.itemsList);
-		lvArrayAdapter = new ArrayAdapter<Item>(this, R.layout.list_item_1, itemList);
+		lvArrayAdapter = new ArrayAdapter<ResourceData>(this, R.layout.list_item_1, itemList);
 		itemsLV.setAdapter(lvArrayAdapter);
 		
 		/* Refresh the list. */
@@ -125,13 +125,13 @@ public class MainActivity extends Activity {
 	 */
 	public void listItems() {
 		try {
-			IBMQuery<Item> query = IBMQuery.queryForClass(Item.class);
+			IBMQuery<ResourceData> query = IBMQuery.queryForClass(ResourceData.class);
 			// Query all the Item objects from the server.
-			query.find().continueWith(new Continuation<List<Item>, Void>() {
+			query.find().continueWith(new Continuation<List<ResourceData>, Void>() {
 
 				@Override
-				public Void then(Task<List<Item>> task) throws Exception {
-                    final List<Item> objects = task.getResult();
+				public Void then(Task<List<ResourceData>> task) throws Exception {
+                    final List<ResourceData> objects = task.getResult();
                      // Log if the find was cancelled.
                     if (task.isCancelled()){
                         Log.e(CLASS_NAME, "Exception : Task " + task.toString() + " was cancelled.");
@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
                         // We'll be reordering and repopulating from DataService.
                         itemList.clear();
                         for(IBMDataObject item:objects) {
-                            itemList.add((Item) item);
+                            itemList.add((ResourceData) item);
                         }
                         sortItems(itemList);
                         lvArrayAdapter.notifyDataSetChanged();
@@ -187,7 +187,7 @@ public class MainActivity extends Activity {
 	public void createItem(View v) {
 		EditText itemToAdd = (EditText) findViewById(R.id.itemToAdd);
 		String toAdd = itemToAdd.getText().toString();
-		Item item = new Item();
+		ResourceData item = new ResourceData();
 		if (!toAdd.equals("")) {
 			item.setName(toAdd);
 			// Use the IBMDataObject to create and persist the Item object.
@@ -221,9 +221,9 @@ public class MainActivity extends Activity {
 	/**
 	 * Will delete an item from the list.
 	 *
-	 * @param  Item item to be deleted
+	 * @param  ResourceData item to be deleted
 	 */
-	public void deleteItem(Item item) {
+	public void deleteItem(ResourceData item) {
 		itemList.remove(listItemPosition);
 		
 		// This will attempt to delete the item on the server.
@@ -267,11 +267,11 @@ public class MainActivity extends Activity {
 	 * Sort a list of Items.
 	 * @param List<Item> theList
 	 */
-	private void sortItems(List<Item> theList) {
+	private void sortItems(List<ResourceData> theList) {
 		// Sort collection by case insensitive alphabetical order.
-		Collections.sort(theList, new Comparator<Item>() {
-			public int compare(Item lhs,
-					Item rhs) {
+		Collections.sort(theList, new Comparator<ResourceData>() {
+			public int compare(ResourceData lhs,
+					ResourceData rhs) {
 				String lhsName = lhs.getName();
 				String rhsName = rhs.getName();
 				return lhsName.compareToIgnoreCase(rhsName);
@@ -299,7 +299,7 @@ public class MainActivity extends Activity {
 		 * @param ActionMode mode and MenuItem item clicked
 		 */
 	    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-	    	Item lItem = itemList.get(listItemPosition);
+	    	ResourceData lItem = itemList.get(listItemPosition);
 	    	/* Switch dependent on which action item was clicked. */
 	    	switch (item.getItemId()) {
 	    		/* On edit, get all info needed & send to new, edit activity. */

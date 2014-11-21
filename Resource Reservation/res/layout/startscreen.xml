@@ -37,11 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
-        android:text="How it Works" 
+        android:layout_marginBottom="116dp"
+        android:text="How it Works"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        />
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/button1"
@@ -49,10 +48,20 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:text="List of Resources" 
+        android:layout_marginBottom="21dp"
+        android:text="List of Resources"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        />
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp"
+        android:text="Logout"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
 </RelativeLayout>

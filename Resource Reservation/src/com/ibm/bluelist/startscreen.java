@@ -14,9 +14,10 @@ public class startscreen extends Activity implements OnClickListener {
 		setContentView(R.layout.startscreen);
 		Button mybutton=(Button) findViewById(R.id.button1);
 		Button mybut2=(Button) findViewById(R.id.button2);
-
+		Button b3=(Button) findViewById(R.id.button3);
 		mybutton.setOnClickListener(this);
 		mybut2.setOnClickListener(this);
+		b3.setOnClickListener(this);
 	}
 	
 	public void onClick(View v)
@@ -32,6 +33,12 @@ public class startscreen extends Activity implements OnClickListener {
 		{
 			System.out.println("Button 2 clicked");
 			Intent i=new Intent (getApplicationContext(),howitworks.class);
+			startActivity(i);
+		}
+		else if(v.getId()==R.id.button3)
+		{
+			System.out.println("Button 3 clicked");
+			Intent i=new Intent (getApplicationContext(),firstscreen.class);
 			startActivity(i);
 		}
 	}
